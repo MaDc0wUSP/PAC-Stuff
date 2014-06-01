@@ -1,0 +1,26 @@
+[
+    {
+        "name":     "android_frameworks_av",
+        "path":     "frameworks/av"
+    },
+    {
+        "name":     "android_hardware_qcom_audio-legacy",
+        "path":     "hardware/qcom/display-legacy"
+    },
+    {
+        "name":     "android_hardware_qcom_display-legacy",
+        "path":     "hardware/qcom/display-legacy"
+    },
+    {
+        "name":     "android_hardware_qcom_media-legacy",
+        "path":     "hardware/qcom/display-legacy"
+    },
+    {
+        "name":     "android_packages_providers_MediaProvider",
+        "path":     "packages/providers/MediaProvider"
+    },
+    {
+        "name":     "android_vendor_qcom_proprietary",
+        "path":     "vendor/qcom/proprietary"
+    },
+]
