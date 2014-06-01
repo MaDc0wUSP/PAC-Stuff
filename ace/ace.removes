@@ -5,7 +5,7 @@
     },
     {
         "name":     "android_hardware_qcom_audio-legacy",
-        "path":     "hardware/qcom/display-legacy"
+        "path":     "hardware/qcom/audio-legacy"
     },
     {
         "name":     "android_hardware_qcom_display-legacy",
@@ -13,7 +13,7 @@
     },
     {
         "name":     "android_hardware_qcom_media-legacy",
-        "path":     "hardware/qcom/display-legacy"
+        "path":     "hardware/qcom/media-legacy"
     },
     {
         "name":     "android_packages_providers_MediaProvider",
