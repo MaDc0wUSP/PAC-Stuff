@@ -4,11 +4,11 @@
         "path":   "frameworks/av"
     },
     {
-        "name":   "android_hardware_qcom_display-legacy",
+        "name":   "androidarmv6/android_hardware_qcom_display-legacy",
         "path":   "hardware/qcom/display-legacy"
     },
     {
-        "name":   "android_hardware_qcom_media-legacy",
+        "name":   "androidarmv6/android_hardware_qcom_media-legacy",
         "path":   "hardware/qcom/media-legacy"
     },
     {
