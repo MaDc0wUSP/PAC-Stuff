@@ -1,14 +1,22 @@
 [
     {
         "name":   "android_frameworks_av",
-        "path":   "frameworks/av",
+        "path":   "frameworks/av"
+    },
+    {
+        "name":   "android_hardware_qcom_display-legacy",
+        "path":   "hardware/qcom/display-legacy"
+    },
+    {
+        "name":   "android_hardware_qcom_media-legacy",
+        "path":   "hardware/qcom/media-legacy"
     },
     {
         "name":   "android_packages_apps_CMUpdater",
-        "path":   "packages/apps/CMUpdater",
+        "path":   "packages/apps/CMUpdater"
     },
     {
         "name":   "android_packages_providers_MediaProvider",
-        "path":   "packages/providers/MediaProvider",
+        "path":   "packages/providers/MediaProvider"
     }
 ]
