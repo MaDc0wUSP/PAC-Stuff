@@ -1,32 +1,30 @@
 [
     {
-        "account":      "AceEnablementProject",
+        "remote":       "github",
+        "account":      "OpenDesireProject",
         "repository":   "android_device_htc_ace",
         "target_path":  "device/htc/ace",
         "revision":     "cm-11.0"
     },
     {
-        "account":      "AceEnablementProject",
+        "remote":       "github",
+        "account":      "OpenDesireProject",
+        "repository":   "android_device_htc_msm7x30-common",
+        "target_path":  "device/htc/msm7x30-common",
+        "revision":     "cm-11.0"
+    },
+    {
+        "remote":       "github",
+        "account":      "OpenDesireProject",
         "repository":   "android_kernel_htc_msm7x30",
         "target_path":  "kernel/htc/msm7x30",
         "revision":     "cm-11.0"
     },
     {
-        "account":      "AceEnablementProject",
+        "remote":       "github",
+        "account":      "OpenDesireProject",
         "repository":   "android_vendor_htc_ace",
         "target_path":  "vendor/htc/ace",
-        "revision":     "cm-11.0"
-    },
-    {
-        "account":      "AceEnablementProject",
-        "repository":   "android_vendor_qcom_proprietary",
-        "target_path":  "vendor/qcom/proprietary",
-        "revision":     "cm-11.0"
-    },
-    {
-        "account":      "AceEnablementProject",
-        "repository":   "android_device_htc_msm7x30-common",
-        "target_path":  "device/htc/msm7x30-common",
         "revision":     "cm-11.0"
     }
 ]

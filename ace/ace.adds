@@ -1,51 +1,44 @@
 [
     {
         "remote":       "github",
-        "account":      "AceEnablementProject",
+        "account":      "OpenDesireProject",
         "repository":   "android_frameworks_av",
         "target_path":  "frameworks/av",
         "revision":     "cm-11.0"
     },
     {
         "remote":       "github",
-        "account":      "AceEnablementProject",
+        "account":      "OpenDesireProject",
         "repository":   "android_hardware_qcom_audio-legacy",
         "target_path":  "hardware/qcom/audio-legacy",
         "revision":     "cm-11.0"
     },
     {
         "remote":       "github",
-        "account":      "AceEnablementProject",
-        "repository":   "android_hardware_qcom_display-legacy",
+        "account":      "OpenDesireProject",
+        "repository":   "android_hardware_qcom_media-legacy",
         "target_path":  "hardware/qcom/display-legacy",
         "revision":     "cm-11.0"
     },
     {
         "remote":       "github",
-        "account":      "AceEnablementProject",
-        "repository":   "android_hardware_qcom_media-legacy",
+        "account":      "OpenDesireProject",
+        "repository":   "android_hardware_qcom_display-legacy",
         "target_path":  "hardware/qcom/media-legacy",
         "revision":     "cm-11.0"
     },
     {
         "remote":       "github",
-        "account":      "AceEnablementProject",
+        "account":      "OpenDesireProject",
+        "repository":   "android_packages_providers_MediaProvider",
+        "target_path":  "packages/providers/MediaProvider",
+        "revision":     "cm-11.0"
+    },
+    {
+        "remote":       "github",
+        "account":      "OpenDesireProject",
         "repository":   "android_packages_apps_ProximityRecalibrator",
         "target_path":  "packages/apps/ProximityRecalibrator",
-        "revision":     "cm-11.0"
-    },
-    {
-        "remote":       "github",
-        "account":      "AceEnablementProject",
-        "repository":   "packages/providers/MediaProvider",
-        "target_path":  "android_packages_providers_MediaProvider",
-        "revision":     "cm-11.0"
-    },
-    {
-        "remote":       "github",
-        "account":      "AceEnablementProject",
-        "repository":   "android_vendor_qcom_proprietary",
-        "target_path":  "vendor/qcom/proprietary",
         "revision":     "cm-11.0"
     }
 ]
