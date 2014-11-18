@@ -1,0 +1,160 @@
+From 6c047206bb04af8335c67fcb722fdee52cc7a120 Mon Sep 17 00:00:00 2001
+From: MaDc0wUSP <MaDc0w@undergroundz.org>
+Date: Tue, 18 Nov 2014 14:13:35 +0100
+Subject: [PATCH] HTC Desire HD (ace) - Support 4.4.4 PAC-ROM
+
+Change-Id: If0f94215a0c02e2a156860131cb07ff81ee52f01
+---
+ dependencies/ace.dependencies | 30 +++++++++++++++++++++++++++++
+ manifest/ace.adds             | 44 +++++++++++++++++++++++++++++++++++++++++++
+ manifest/ace.removes          | 18 ++++++++++++++++++
+ products/pac_ace.mk           | 24 +++++++++++++++++++++++
+ 4 files changed, 116 insertions(+)
+ create mode 100644 dependencies/ace.dependencies
+ create mode 100644 manifest/ace.adds
+ create mode 100644 manifest/ace.removes
+ create mode 100644 products/pac_ace.mk
+
+diff --git a/dependencies/ace.dependencies b/dependencies/ace.dependencies
+new file mode 100644
+index 0000000..6b1898d
+--- /dev/null
++++ b/dependencies/ace.dependencies
+@@ -0,0 +1,30 @@
++[
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_device_htc_ace",
++        "target_path":  "device/htc/ace",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_device_htc_msm7x30-common",
++        "target_path":  "device/htc/msm7x30-common",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_kernel_htc_msm7x30",
++        "target_path":  "kernel/htc/msm7x30",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_vendor_htc_ace",
++        "target_path":  "vendor/htc/ace",
++        "revision":     "cm-11.0"
++    }
++]
+diff --git a/manifest/ace.adds b/manifest/ace.adds
+new file mode 100644
+index 0000000..93b12b1
+--- /dev/null
++++ b/manifest/ace.adds
+@@ -0,0 +1,44 @@
++[
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_frameworks_av",
++        "target_path":  "frameworks/av",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_hardware_qcom_audio-legacy",
++        "target_path":  "hardware/qcom/audio-legacy",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_hardware_qcom_media-legacy",
++        "target_path":  "hardware/qcom/media-legacy",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_hardware_qcom_display-legacy",
++        "target_path":  "hardware/qcom/display-legacy",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_packages_providers_MediaProvider",
++        "target_path":  "packages/providers/MediaProvider",
++        "revision":     "cm-11.0"
++    },
++    {
++        "remote":       "github",
++        "account":      "OpenDesireProject",
++        "repository":   "android_packages_apps_ProximityRecalibrator",
++        "target_path":  "packages/apps/ProximityRecalibrator",
++        "revision":     "cm-11.0"
++    }
++]
+diff --git a/manifest/ace.removes b/manifest/ace.removes
+new file mode 100644
+index 0000000..b846579
+--- /dev/null
++++ b/manifest/ace.removes
+@@ -0,0 +1,18 @@
++[
++    {
++        "name":   "android_frameworks_av",
++        "path":   "frameworks/av"
++    },
++    {
++        "name":   "androidarmv6/android_hardware_qcom_display-legacy",
++        "path":   "hardware/qcom/display-legacy"
++    },
++    {
++        "name":   "androidarmv6/android_hardware_qcom_media-legacy",
++        "path":   "hardware/qcom/media-legacy"
++    },
++    {
++        "name":   "android_packages_providers_MediaProvider",
++        "path":   "packages/providers/MediaProvider"
++    }
++]
+diff --git a/products/pac_ace.mk b/products/pac_ace.mk
+new file mode 100644
+index 0000000..d4a9cb6
+--- /dev/null
++++ b/products/pac_ace.mk
+@@ -0,0 +1,24 @@
++# Check for target product
++ifeq (pac_ace,$(TARGET_PRODUCT))
++
++# PAC boot logo
++PRODUCT_COPY_FILES += \
++    vendor/pac/prebuilt/common/bootlogo/pac_logo_480x800.rle:root/logo.rle
++
++# Copy bootanimation
++PRODUCT_COPY_FILES += \
++    vendor/pac/prebuilt/480x800/bootanimation.zip:system/media/bootanimation.zip
++
++# include PAC common configuration
++include vendor/pac/config/pac_common.mk
++
++# Inherit CM device configuration
++$(call inherit-product, device/htc/ace/cm.mk)
++
++PRODUCT_NAME := pac_ace
++
++# Update local_manifest.xml
++GET_PROJECT_RMS := $(shell vendor/pac/tools/removeprojects.py $(PRODUCT_NAME))
++GET_PROJECT_ADDS := $(shell vendor/pac/tools/addprojects.py $(PRODUCT_NAME))
++
++endif
+-- 
+2.0.2
+

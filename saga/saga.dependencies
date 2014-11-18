@@ -1,0 +1,30 @@
+[
+    {
+        "remote":       "github",
+        "account":      "OpenDesireProject",
+        "repository":   "android_device_htc_saga",
+        "target_path":  "device/htc/saga",
+        "revision":     "cm-11.0"
+    },
+    {
+        "remote":       "github",
+        "account":      "OpenDesireProject",
+        "repository":   "android_device_htc_msm7x30-common",
+        "target_path":  "device/htc/msm7x30-common",
+        "revision":     "cm-11.0"
+    },
+    {
+        "remote":       "github",
+        "account":      "OpenDesireProject",
+        "repository":   "android_kernel_htc_msm7x30",
+        "target_path":  "kernel/htc/msm7x30",
+        "revision":     "cm-11.0"
+    },
+    {
+        "remote":       "github",
+        "account":      "OpenDesireProject",
+        "repository":   "android_vendor_htc_saga",
+        "target_path":  "vendor/htc/saga",
+        "revision":     "cm-11.0"
+    }
+]
