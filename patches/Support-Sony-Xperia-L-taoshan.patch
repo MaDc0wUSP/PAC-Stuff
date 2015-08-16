@@ -1,0 +1,92 @@
+From b1bb9a224403314bc698084e53b0f6b9ace3432f Mon Sep 17 00:00:00 2001
+From: MaDc0w <MaDc0w@pac-rom.com>
+Date: Sat, 15 Aug 2015 22:23:04 +0200
+Subject: [PATCH] Sony Xperia L (taoshan) - Support 5.1 PAC-ROM
+
+Change-Id: I3100f8dd9978947a312b3e6dcc2ef6ecef0416d6
+---
+ dependencies/taoshan.dependencies | 51 +++++++++++++++++++++++++++++++++++++++
+ products/pac_taoshan.mk           | 13 ++++++++++
+ 2 files changed, 64 insertions(+)
+ create mode 100644 dependencies/taoshan.dependencies
+ create mode 100644 products/pac_taoshan.mk
+
+diff --git a/dependencies/taoshan.dependencies b/dependencies/taoshan.dependencies
+new file mode 100644
+index 0000000..7beb377
+--- /dev/null
++++ b/dependencies/taoshan.dependencies
+@@ -0,0 +1,51 @@
++[
++  {
++    "remote":      "cm",
++    "repository":  "android_device_sony_msm8960-common",
++    "target_path": "device/sony/msm8960-common",
++    "revision":    "cm-12.1"
++  },
++  {
++    "remote":      "github",
++    "account":     "SdtBarbarossa",
++    "repository":  "android_device_sony_taoshan",
++    "target_path": "device/sony/taoshan",
++    "revision":    "cm-12.0"
++  },
++  {
++    "remote":      "cm",
++    "repository":  "android_kernel_sony_msm8930",
++    "target_path": "kernel/sony/msm8930",
++    "revision":    "cm-12.1"
++  },
++  {
++    "remote":      "ss",
++    "repository":  "android_device_qcom_common",
++    "target_path": "device/qcom/common",
++    "revision":    "pac-5.1"
++  },
++  {
++    "remote":      "ss",
++    "repository":  "android_device_sony_common",
++    "target_path": "device/sony/common",
++    "revision":    "pac-5.1"
++  },
++  {
++    "remote":      "pic",
++    "repository":  "proprietary_vendor_sony",
++    "target_path": "vendor/sony",
++    "revision":    "cm-12.1"
++  },
++  {
++    "remote":      "ss",
++    "repository":  "android_hardware_qcom_fm",
++    "target_path": "hardware/qcom/fm",
++    "revision":    "pac-5.1"
++  },
++  {
++    "remote":      "ss",
++    "repository":  "android_hardware_sony_thermanager",
++    "target_path": "hardware/sony/thermanager",
++    "revision":    "pac-5.1"
++  }
++]
+diff --git a/products/pac_taoshan.mk b/products/pac_taoshan.mk
+new file mode 100644
+index 0000000..5ca2e34
+--- /dev/null
++++ b/products/pac_taoshan.mk
+@@ -0,0 +1,13 @@
++# Check for target product
++ifeq (pac_taoshan,$(TARGET_PRODUCT))
++
++# Bootanimation
++PAC_BOOTANIMATION_NAME := 480
++
++# Include PAC common configuration
++include vendor/pac/config/pac_common.mk
++
++# Inherit CM device configuration
++$(call inherit-product, device/sony/taoshan/cm.mk)
++
++endif
+-- 
+1.9.1
+

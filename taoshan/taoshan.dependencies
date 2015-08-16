@@ -1,0 +1,35 @@
+[
+  {
+    "remote":      "CyanogenMod",
+    "repository":  "android_device_sony_msm8960-common",
+    "target_path": "device/sony/msm8960-common"
+  },
+  {
+    "remote":      "SdtBarbarossa",
+    "repository":  "android_device_sony_taoshan",
+    "target_path": "device/sony/taoshan"
+  },
+  {
+    "remote":      "CyanogenMod",
+    "repository":  "android_kernel_sony_msm8930",
+    "target_path": "kernel/sony/msm8930"
+  },
+  {
+    "remote":      "pic",
+    "repository":  "proprietary_vendor_sony",
+    "target_path": "vendor/sony",
+    "revision":    "cm-12.1"
+  },
+  {
+    "remote":      "ss",
+    "repository":  "android_hardware_qcom_fm",
+    "target_path": "hardware/qcom/fm",
+    "revision":    "pac-5.1"
+  },
+  {
+    "remote":      "ss",
+    "repository":  "android_hardware_sony_thermanager",
+    "target_path": "hardware/sony/thermanager",
+    "revision":    "pac-5.1"
+  }
+]
