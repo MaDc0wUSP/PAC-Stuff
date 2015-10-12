@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+
+# Some sanity checking
+echo "Checking cURL for libssh2 support..."
+statsftp=$(curl -V | grep -q "sftp" && echo 0 || echo 1)
+statlibssh2=$(curl -V | grep -q "libssh2" && echo 0 || echo 1)
+
+if [ $statsftp -eq 0 ] || [ $statlibssh2 -eq 0 ]; then
+    echo "Looks like cURL has libssh2. Skipping to next step..."
+else
+    echo "Looks like cURL doesn't have libssh2 support. Recompiling..."
+    sudo apt-get -y install build-essential debhelper libssh2-1-dev
+    sudo apt-get -y source curl
+    sudo apt-get -y build-dep curl
+    cd curl-*/debian
+    sudo sed -i '/ssl\/certs$/ s/$/ --with-libssh2/' rules
+    sudo sed -i '/--with-gnutls$/ s/$/ --with-libssh2/' rules
+    sudo sed -i '/--with-nss$/ s/$/ --with-libssh2/' rules
+    echo ""
+    echo "Let's Rock'n'Roll!"
+    echo ""
+    sleep 2
+    cd ..
+    for i in READY SET; do
+        echo $i...
+        echo ""
+        sleep 2
+    done
+    echo "GO!"
+    echo ""
+    sudo dpkg-buildpackage
+    cd ..
+    sudo dpkg -i curl_*.deb
+    sudo dpkg -i libcurl3_*.deb
+    sudo dpkg -i libcurl3-gnutls_*.deb
+fi
+
+echo "Rechecking cURL for libssh2 support..."
+statsftp=$(curl -V | grep -q "sftp" && echo 0 || echo 1)
+statlibssh2=$(curl -V | grep -q "libssh2" && echo 0 || echo 1)
+
+if [ $statsftp -eq 0 ] || [ statlibssh2-eq 0 ]; then
+    echo "Looks like cURL has libssh2 now! Continuing to next step..."
+    sudo rm -rf *curl*
+else
+    echo "Looks like something went wrong. Aborting..."
+    exit
+fi
