@@ -40,7 +40,7 @@ echo "Rechecking cURL for libssh2 support..."
 statsftp=$(curl -V | grep -q "sftp" && echo 0 || echo 1)
 statlibssh2=$(curl -V | grep -q "libssh2" && echo 0 || echo 1)
 
-if [ $statsftp -eq 0 ] || [ statlibssh2 -eq 0 ]; then
+if [ $statsftp -eq 0 ] || [ $statlibssh2 -eq 0 ]; then
     echo "Looks like cURL has libssh2 now! Continuing to next step..."
     sudo rm -rf *curl*
 else
